@@ -1,0 +1,36 @@
+---
+title: "Some vowels"
+date: Today
+author: "La Ramirez"
+Output: html_document
+editor_options: 
+  chunk_output_type: console
+output: 
+  html_document: 
+    highlight: zenburn
+    theme: sandstone
+---
+
+
+```{r, 'setup', message=FALSE}
+library("tidyverse")
+library("untidydata")
+```
+
+#Task: Separate 
+```{r, plot-vowels, out.width="100%", fig.retina=2}
+spanish_vowels %>% 
+  separate(
+    col = label, 
+    into = c("id", "gender", "vowel"), 
+    sep = "-"
+    ) %>% 
+  ggplot() +
+  aes (x = f2, y = f1, label = vowel, color = vowel) +
+  facet_grid(.~ gender) +
+  geom_text(alpha = 0.3) +
+  scale_y_reverse() +
+  scale_x_reverse()
+
+```
+
