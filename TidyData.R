@@ -95,3 +95,7 @@ test_scores_rm %>%
   geom_point() +
   geom_smooth(method = "lm")      
 
+## fit a model with the lm() function
+
+mod <- lm (mpg ~ wt, data=mtcars)
+summary(mod1)
